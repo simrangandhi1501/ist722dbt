@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: fact_sales
+    description: One row per line item ordered. Transaction type.
+    columns:
+      - name: orderid
+        description: Source key used for drill through
+        tests:
+          - not_null
+          - unique
+
+      - name: customerkey
+        description: Dimension FK for dim_customer
+
+      - name: employeekey
+        description: Dimension FK for dim_employee
+
+      - name: datekey
+        description: Dimension FK for dim_date
+
+      - name: productkey
+        description: Dimension FK for dim_product
+
+      - name: unitprice
+        description: Unit price of the product
+
+      - name: quantity
+        description: The quantity of the product on the order
+
+      - name: costprice
+        description: Additive fact for quantity * product price
+
+      - name: discount
+        description: Discount applied
+
+      - name: sellingprice
+        description: Cost price - discount
